@@ -5,7 +5,7 @@
         $sql="DELETE FROM `users` WHERE `login`=$login";
         $connect->query($sql);
     }
-            eloeloeloeeol
+    
 
 
 ?>
