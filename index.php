@@ -1,7 +1,7 @@
 <!doctype html>
 <?php
   session_start();
-  require_once('../php/scripts/connect.php')
+  require_once('./php/scripts/connect.php')
 ?>
 <html lang="en">
   <head>
