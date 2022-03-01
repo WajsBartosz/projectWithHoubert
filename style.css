@@ -1,8 +1,14 @@
 body{
     background-image: url("images/background.jpg");
-    background-color: lightcoral;
+    background-color: rgb(33,37,41);
     margin: 0px;
     padding: 0px;
+    color:white;
+}
+
+.test{
+    border-style:solid;
+    border-color:red;
 }
 
 #main{
@@ -11,9 +17,10 @@ body{
     margin-bottom:50px;
     width:85%;
     background-color: rgb(33,37,41);
-    height:80vh;
     opacity:0.925;
     color:White;
+    overflow:auto;
+    min-height: 78vh;
 }
 
 footer{
@@ -24,4 +31,15 @@ footer{
     padding:15px;
     box-sizing: border-box;
     text-align: center;
+}
+
+.btn-outline-success{
+    color:orange;
+    border-style:none;
+    border-radius:5px;
+}
+
+.btn-outline-success:hover{
+    background-color:rgb(28,32,36);
+    color:orange;
 }

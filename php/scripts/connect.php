@@ -1,3 +1,3 @@
 <?php
-    $connect = new_mysqli("localhost",'root','','forum_speedrun');
+    $connect = @new mysqli('localhost','root','','forum_speedrun');
 ?>

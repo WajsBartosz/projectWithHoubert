@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require_once ('../../scripts/connect.php');
+  require_once ('../../php/scripts/connect.php');
   if(!$connect->connect_errno){
     $sql = "select * from `users`";
     $result = $connect->query($sql);
@@ -8,7 +8,7 @@
     //hasło za krótkie
     if(strlen($_POST['password'])<6){
       $_SESSION['error']=5;
-      header("location: ../user.php?registration=1");
+      header("location: ../login.php");
     }
 
     //wymagania dotyczące znaków
@@ -31,27 +31,27 @@
     //hasło nie ma wymaganych znaków
     if($bigLetter!=1 or $smallLetter!=1 or $number!=1 or $special!=1){
       $_SESSION['error']=6;
-      header("location: ../user.php?registration=1");
+      header("location: ../login.php");
     }
 
     //hasła nie są takie same
     if($_POST['password']!=$_POST['password1']){
       $_SESSION['error']=4;
-      header("location: ../user.php?registration=1");
+      header("location: ../login.php");
     }
 
     //taki login już istnieje
     foreach($result as $user){
       if($user['login']==$_POST['login']){
         $_SESSION['error']=3;
-        header("location: ../user.php?registration=1");
+        header("location: ../login.php");
       }
     }
 
     if($_SESSION['error']==0){
       $sql="insert into `users` (`login`,`password`,`type`) values ('$_POST[login]','$_POST[password]','1')";
       $connect -> query($sql);
-      header("location: ../../main.php");
+      header("location: ../../index.php");
       $_SESSION['login']=$_POST['login'];
       $_SESSION['type']=1;
     }

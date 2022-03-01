@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require_once ('../../scripts/connect.php');
+  require_once ('../../php/scripts/connect.php');
   if(!$connect->connect_errno){
     $sql = "select * from `users`  where login like '$_POST[login]'";
     $result = $connect->query($sql);
@@ -9,13 +9,13 @@
     //nie znaleziono loginu
     if($result->num_rows==0){
       $_SESSION['error']=1;
-      header("location: ../user.php");
+      header("location: ../login.php");
     }
 
     //złe hasło
     else if($row[1]!=$_POST['password']){
       $_SESSION['error']=2;
-      header("location: ../user.php");
+      header("location: ../login.php");
     }
 
     //pomyślnie zalogowano
@@ -23,7 +23,7 @@
       $_SESSION['login']=$_POST['login'];
       $_SESSION['type']=$row[2];
       $_SESSION['error']=0;
-      header("location: ../../main.php");
+      header("location: ../../index.php");
     }
     $connect->close();
 
