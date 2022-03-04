@@ -5,6 +5,24 @@
     $sql = "select * from `users`";
     $result = $connect->query($sql);
 
+    $_SESSION['error']=0;
+
+    //taki login już istnieje
+    foreach($result as $user){
+      if($user['login']==$_POST['login']){
+         $_SESSION['error']=3;
+         header("location: ../login.php");
+      }
+    }
+    
+    //taki email już istnieje
+    foreach($result as $user){
+      if($user['mail']==$_POST['mail']){
+         $_SESSION['error']=4;
+         header("location: ../login.php");
+      }
+    }
+
     //hasło za krótkie
     if(strlen($_POST['password'])<6){
       $_SESSION['error']=5;
@@ -27,29 +45,26 @@
       if(($_POST['password'][$i]>='!' and $_POST['password'][$i]<='/') or ($_POST['password'][$i]>=':' and $_POST['password'][$i]<='@') or ($_POST['password'][$i]>='{' and $_POST['password'][$i]<='~') or ($_POST['password'][$i]>='[' and $_POST['password'][$i]<='`'))
         $special = 1;
     }
-    
+
     //hasło nie ma wymaganych znaków
     if($bigLetter!=1 or $smallLetter!=1 or $number!=1 or $special!=1){
       $_SESSION['error']=6;
+      echo "6";
       header("location: ../login.php");
     }
 
+    echo $_POST['password']." ".$_POST['password1']."<br>";
     //hasła nie są takie same
     if($_POST['password']!=$_POST['password1']){
-      $_SESSION['error']=4;
+      $_SESSION['error']=7;
+      echo "7";
       header("location: ../login.php");
     }
 
-    //taki login już istnieje
-    foreach($result as $user){
-      if($user['login']==$_POST['login']){
-        $_SESSION['error']=3;
-        header("location: ../login.php");
-      }
-    }
+    $sha1pass = sha1($_POST['password']);
 
     if($_SESSION['error']==0){
-      $sql="insert into `users` (`login`,`password`,`type`) values ('$_POST[login]','$_POST[password]','1')";
+      $sql="insert into `users` (`login`,`password`,`mail`,`accType`) values ('$_POST[login]','$sha1pass','$_POST[mail]','1')";
       $connect -> query($sql);
       header("location: ../../index.php");
       $_SESSION['login']=$_POST['login'];

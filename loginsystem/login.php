@@ -1,8 +1,10 @@
 <!doctype html>
 <?php
   session_start();
-  require_once('../php/scripts/connect.php')
+  require_once('../php/scripts/connect.php');
+  if(isset($_SESSION['login'])) header("location: ../account/account.php");
 ?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -27,7 +29,7 @@
           <a class="nav-link" href="../index.php">Strona główna</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="./login.php">Konto</a>
+          <a class="nav-link active" href="./login.php">Zaloguj się</a>
         </li>
       </ul>
       <form class="d-flex">
@@ -44,25 +46,46 @@
         <h2> Logowanie </h2><hr>
         <form action='./scripts/loginScript.php' method='post'>
             Login:<br>
-            <input type='text' name='login' placeholder='login'><br>
+            <input type='text' name='login' placeholder='login' required><br>
             Hasło:<br>
-            <input type='password' name='password' placeholder='haslo'><br>
+            <input type='password' name='password' placeholder='haslo' required><br>
             <input type='submit' value='zaloguj'>
           </form>
+          <div id='loginError'>
+          <?php
+            if(isset($_SESSION['error'])){
+              if($_SESSION['error']==1) echo "Nie znaleziono takiego loginu.";
+              if($_SESSION['error']==2) echo "Podane hasło jest nieprawidłowe.";
+            }
+          ?>
+          </div>
     </div>
     <div class="col-sm" id='login'>
         <h2> Rejestracja </h2><hr>
         <form action='./scripts/registerScript.php' method='post'>
             Email:<br>
-            <input type='text' name='mail' placeholder='email'><br>
+            <input type='email' name='mail' placeholder='email' required><br>
             Login:<br>
-            <input type='text' name='login' placeholder='login'><br>
+            <input type='text' name='login' placeholder='login' required><br>
             Hasło:<br>
-            <input type='password' name='password' placeholder='hasło'><br>
+            <input type='password' name='password' placeholder='hasło' required><br>
             Powtórz hasło:<br>
-            <input type='password' name='password1' placeholder='powtórz hasło'><br>
+            <input type='password' name='password1' placeholder='powtórz hasło' required><br>
             <input type='submit' value='zarejestruj'>
           </form>
+          <div id='registerError'>
+
+          <?php
+            if(isset($_SESSION['error'])){
+              if($_SESSION['error']==3) echo "Taki login już istnieje.";
+              if($_SESSION['error']==4) echo "Taki Email już istnieje.";
+              if($_SESSION['error']==5) echo "Hasło za krótkie.";
+              if($_SESSION['error']==6) echo "Hasło nie spełnia wymagań.";
+              if($_SESSION['error']==7) echo "Hasła nie są takie same.";
+            }
+          ?>
+
+          </div>
     </div>
   </div>
  </div>
