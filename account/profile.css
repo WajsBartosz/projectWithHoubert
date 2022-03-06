@@ -1,0 +1,48 @@
+#top{
+    margin:auto;
+    margin-top:50px;
+    margin-bottom:50px;
+    width:85%;
+    opacity:0.925;
+    color:White;
+    overflow:auto;
+    min-height: 25vh; 
+    font-size: 30px;
+}
+
+#bottom{
+    margin:auto;
+    margin-top:50px;
+    margin-bottom:50px;
+    width:85%;
+    opacity:0.925;
+    color:White;
+    overflow:auto;
+    min-height: 50vh;
+    font-size: 30px;
+    padding-top: 50px;
+}
+
+.topParagraphs{
+    padding-left: 40%;
+}
+
+#info{
+    text-align: center;
+    font-size: 50px;
+    padding-bottom: 30px;
+}
+
+#info{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+#info:hover{
+    color: orange;
+}
+
+#editInfo{
+    padding-top: 70px;
+}
