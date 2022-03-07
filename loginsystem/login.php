@@ -2,7 +2,7 @@
 <?php
   session_start();
   require_once('../php/scripts/connect.php');
-  if(isset($_SESSION['login'])) header("location: ../account/account.php");
+  if(isset($_SESSION['login'])) header("location: ../account/profile.php");
 ?>
 
 <html lang="en">
@@ -17,7 +17,7 @@
   </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-dark" style="background-color:rgb(33,37,41); padding-bottom:0px; padding-top:0px;">
+<nav class="navbar navbar-expand-md navbar-dark" style="background-color:rgb(47,52,56); padding-bottom:0px; padding-top:0px; position:sticky; top: 0; z-index:2;">
   <div class="container-fluid">
     <a class="navbar-brand" href="../index.php"><img src='../images/logo.png' width=200px></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,12 +69,19 @@
             <input type='text' name='login' placeholder='login' required><br>
             Hasło:<br>
             <input type='password' name='password' placeholder='hasło' required><br>
-            Powtórz hasło:<br>
+            <h6 id='openPasswordReq' style='color:rgb(226, 189, 87); width:220px; margin:auto;'>Wymagania dotyczące hasła</h6>
+            <div class='passwordReq' id='passwordReq'>
+              min. 6 znaków<br>
+              1 mała litera<br>
+              1 duża litera<br>
+              1 znak specjalny<br>
+              1 cyfra
+            </div>
+            <div style='margin-top:30px;'>Powtórz hasło:<br></div>
             <input type='password' name='password1' placeholder='powtórz hasło' required><br>
             <input type='submit' value='zarejestruj'>
           </form>
           <div id='registerError'>
-
           <?php
             if(isset($_SESSION['error'])){
               if($_SESSION['error']==3) echo "Taki login już istnieje.";
@@ -93,7 +100,7 @@
 <footer>
     Wszelkie prawa zastrzeżone <b>Wajs Bartosz Przybyła Hubert</b> &copy
     </footer>
-
+<script src='./scripts/script.js'>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   
 </body>

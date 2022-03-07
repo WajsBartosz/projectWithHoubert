@@ -17,7 +17,7 @@
 
   <body>
 
-<nav class="navbar navbar-expand-md navbar-dark" style="background-color:rgb(33,37,41); padding-bottom:0px; padding-top:0px;">
+  <nav class="navbar navbar-expand-md navbar-dark" style="background-color:rgb(47,52,56); padding-bottom:0px; padding-top:0px; position:sticky; top: 0; z-index:2;">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php"><img src='images/logo.png' width=200px></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

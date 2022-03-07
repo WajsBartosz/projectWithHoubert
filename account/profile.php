@@ -18,20 +18,20 @@
 
   <body>
 
-<nav class="navbar navbar-expand-md navbar-dark" style="background-color:rgb(33,37,41); padding-bottom:0px; padding-top:0px;">
+<nav class="navbar navbar-expand-md navbar-dark" style="background-color:rgb(47,52,56); padding-bottom:0px; padding-top:0px; position:sticky; top: 0; z-index:2;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php"><img src='../images/logo.png' width=200px></a>
+    <a class="navbar-brand" href="../index.php"><img src='../images/logo.png' width=200px></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" href="../index.php">Strona główna</a>
+          <a class="nav-link" href="../index.php">Strona główna</a>
         </li>
         <?php if(isset($_SESSION['login'])){
           echo "<li class=nav-item>
-            <a class=nav-link href=./profile.php>Witaj, $_SESSION[login]</a>
+            <a class='nav-link active' href=./profile.php>Witaj, $_SESSION[login]</a>
           </li>";
         }else{
           echo "<li class=nav-item>

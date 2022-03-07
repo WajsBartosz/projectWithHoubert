@@ -1,5 +1,6 @@
 <?php
   session_start();
+  if(isset($_SESSION['login'])) header("location: ../account/profile.php");
   require_once ('../../php/scripts/connect.php');
   if(!$connect->connect_errno){
     $sql = "select * from `users`  where login like '$_POST[login]'";
