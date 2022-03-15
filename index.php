@@ -44,7 +44,7 @@
         <li class="nav-item">
           <a class="nav-link" href="./php/scripts/logout.php">Wyloguj się</a>
         </li>
-        logout;
+logout;
         }
         ?>
       </ul>

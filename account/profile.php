@@ -3,7 +3,8 @@
   session_start();
   //$_SESSION['login'] = login
   //$_SESSION['type'] = user/admin 
-  require_once('../php/scripts/connect.php')
+  require_once('../php/scripts/connect.php');
+  if(!isset($_SESSION['login'])) header("location: ../index.php")
 ?>
 <html lang="en">
   <head>
@@ -45,7 +46,7 @@
         <li class="nav-item">
           <a class="nav-link" href="../php/scripts/logout.php">Wyloguj się</a>
         </li>
-        logout;
+logout;
         }
         ?>
       </ul>
@@ -69,7 +70,7 @@
             $postVariety="postów";
         }else if($numberOfPosts['number']==1){
             $postVariety="post";
-        }else if($numberOfPosts['number']>1 && $numberOfPosts<=4){
+        }else if($numberOfPosts['number']>1 && $numberOfPosts['number']<=4){
             $postVariety="posty";
         }
         if($accountInformation['accType']=="user"){
@@ -80,7 +81,8 @@
 
     ?>
         <div id="top">
-            <p id="info">Informacje o twoim koncie</p>
+            <h1><p id="info">Informacje o twoim koncie</p></h1>
+            <hr>
             <?php if($accountInformation['photoPath']!=NULL){
                 echo "<img src=./avatars/$accountInformation[photoPath]";
             }?>
