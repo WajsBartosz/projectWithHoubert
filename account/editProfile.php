@@ -76,8 +76,8 @@ logout;
             }
         ?>
       <hr>
-        <label class='changeMail' id='mailChange'>Zmień adres e-mail:</label>
-        <div class='change' id='mailChangeHidden'>
+        <div class='changeLabel'>Zmień adres e-mail:</div>
+           <div class='changeDiv'>
             <form action='./scripts/changeMail.php'  method='post'>
                 <label>Podaj nowy mail:</label><br>
                     <input type='mail' name='email'><br>
@@ -85,7 +85,23 @@ logout;
                     <input type='password' name='password'><br><br>
                 <input type='submit' value='zmień mail' class='button'>
             </form>
-        </div>
+           </div>
+        <div class='changeLabel'>Zmień hasło</div>
+          <div class='changeDiv'>
+            <form action='./scripts/changePassword.php'  method='post'>
+                <label>Podaj aktualne hasło</label><br>
+                    <input type='password' name='oldPass'><br>
+                <label>Podaj hasło:</label><br>
+                    <input type='password' name='newPass'><br>
+                <label>Podaj hasło ponownie:</label><br>
+                    <input type='password' name='newPassRep'><br><br>
+                <input type='submit' value='zmień hasło' class='button'>
+            </form>
+           </div>
+          <div class='changeLabel'>Zmiana czegokolwiek</div>
+            <div class='changeDiv'>
+              Tu dajesz form
+            </div>
         <script src='./scripts/showEdits.js'>
     </div>
 </div>

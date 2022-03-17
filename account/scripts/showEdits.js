@@ -1,6 +1,12 @@
-const mail = document.getElementById('mailChange');
-const mailHidden = document.getElementById('mailChangeHidden')
+const openCloseDiv = document.querySelectorAll('.changeLabel');
+const openedDiv = document.querySelectorAll('.changeDiv');
 
-mail.onclick = function(){
-    mailHidden.classList.add('visible')
+for(let i=0; i<openCloseDiv.length; i++){
+    openCloseDiv[i].onclick = function(){
+        if(openedDiv[i].classList.contains('visible'))
+            openedDiv[i].classList.remove('visible');
+        else
+            openedDiv[i].classList.add('visible');
+
+    }
 }

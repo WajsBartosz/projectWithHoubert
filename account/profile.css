@@ -11,18 +11,25 @@
     font-size: 30px;
 }
 
-.change{
+.changeDiv{
     clear:both;
     width:100%;
     background-color: rgb(23,27,31);
     font-size: 80%;
-    padding:20px;
+    transition: 500ms;
     border-radius:20px;
-    transition: opacity 1s ease-out;
-    opacity: 0;
-    height: 0;
+    max-height: 0;
     overflow: hidden;
+    position: relative;
+}
 
+.changeDiv label, .changeDiv input{
+    margin:5px;
+}
+
+.visible{
+    padding-left:20px;
+    max-height:500px;
 }
 
 .button{
@@ -33,11 +40,7 @@
     border-radius:5px;
     font-size:90%;
     font-family:Arial, Helvetica, sans-serif;
-}
-
-.visible{
-    opacity: 1;
-    height: auto;
+    transition: 0.35s;
 }
 
 .button:hover{
@@ -80,4 +83,9 @@
 
 #editInfo{
     padding-top: 70px;
+}
+
+.changeLabel{
+    clear:both;
+    
 }
