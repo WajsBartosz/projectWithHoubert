@@ -14,7 +14,7 @@
     <link rel='stylesheet' href='../style.css'>
     <link rel='stylesheet' href='./profile.css'>
     <link rel="icon" type="image/x-icon" href="../images/bonfire.jpg">
-    <title>Edycja profilu</title>
+    <title>Edytuj profil</title>
   </head>
 
   <body>
@@ -98,19 +98,20 @@ logout;
                 <input type='submit' value='zmień hasło' class='button'>
             </form>
            </div>
-          <div class='changeLabel'>Zmiana czegokolwiek</div>
+          <div class='changeLabel'>Zmień opis</div>
             <div class='changeDiv'>
-              Tu dajesz form
+              <form action='./scripts/changeDescription.php' method='POST'>
+                <textarea id='description' name='description'></textarea><br>
+                <input type='submit' value='zmień opis' class='button'>
+              </form>
             </div>
-        <script src='./scripts/showEdits.js'>
     </div>
 </div>
 
     <footer>
     Wszelkie prawa zastrzeżone <b>Wajs Bartosz Przybyła Hubert</b> &copy
 </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>  
+<script src='./scripts/showEdits.js'></script>
 </body>
 </html>
