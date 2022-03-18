@@ -14,7 +14,7 @@
     <link rel='stylesheet' href='../style.css'>
     <link rel='stylesheet' href='./profile.css'>
     <link rel="icon" type="image/x-icon" href="../images/bonfire.jpg">
-    <title>Strona główna</title>
+    <title>Profil</title>
   </head>
 
   <body>
