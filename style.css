@@ -43,3 +43,21 @@ footer {
   background-color: rgb(28, 32, 36);
   color: orange;
 }
+
+.singleSection{
+  display:flex;
+  margin: 10px 0;
+  font-size:27px;
+}
+
+.leftSide{
+  width:40%;
+  background-color: blue;
+  padding:10px;
+}
+
+.rightSide{
+  width:60%;
+  background-color: red;
+  padding:10px;
+}

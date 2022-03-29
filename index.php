@@ -57,8 +57,8 @@ logout;
 </nav>
 
     <div id='main'>
-
-</div>
+        <?php require_once('./php/displayForumSections.php')?>
+    </div>
 
     <footer>
     Wszelkie prawa zastrzeżone <b>Wajs Bartosz Przybyła Hubert</b> &copy
