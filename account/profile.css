@@ -58,7 +58,7 @@
   opacity: 0.925;
   color: White;
   overflow: none;
-  min-height: 50vh;
+  min-height: 45vh;
   font-size: 30px;
 }
 
@@ -84,6 +84,7 @@
 
 #editInfo {
   text-align: center;
+  padding-top: 20px;
 }
 
 .changeLabel {
@@ -96,4 +97,8 @@
   height: 300px;
   float: left;
   margin: 0;
+}
+
+#bottomBottom{
+  min-height: 10vh;
 }

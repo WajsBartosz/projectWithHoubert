@@ -99,7 +99,9 @@ logout;
             <p class="bottomParagraphs">Numer telefonu: <?php if($accountInformation['country']!=NULL) echo "$accountInformation[phone]";?></p>
             <p class="bottomParagraphs">Do teraz opublikowałeś <?php echo "$numberOfPosts[number] $postVariety"; ?></p>
         </div>
-        <p id="editInfo"><a id="info" href="./editProfile.php">Edytuj profil</a></p>
+        <div id="bottomBottom">
+          <p id="editInfo"><a id="info" href="./editProfile.php">Edytuj profil</a></p>
+        </div>
 </div>
 
     <footer>
