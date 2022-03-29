@@ -58,7 +58,7 @@ logout;
   </div>
 </nav>
 
-  <div id='main'>
+  <div id='main' class='elo'>
     <?php 
 
     ?>
@@ -137,7 +137,9 @@ logout;
               </form>
             </div>
       </div>
-      <a href='profile.php'>Powrót na profil</a>
+      <div id='bottomBottom'>
+        <p id="editInfo"><a id='info' href='profile.php'>Powrót na profil</a></p>
+      </div>  
   </div>
 
     <footer>
