@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 19 Lut 2022, 19:39
--- Wersja serwera: 10.4.17-MariaDB
--- Wersja PHP: 8.0.1
+-- Czas generowania: 29 Mar 2022, 11:38
+-- Wersja serwera: 10.1.8-MariaDB
+-- Wersja PHP: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -20,21 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `forum_speedrun`
 --
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `bans`
---
-
-CREATE TABLE `bans` (
-  `id` int(11) NOT NULL,
-  `givenBy` varchar(16) NOT NULL,
-  `bannedUser` varchar(16) NOT NULL,
-  `reason` varchar(100) NOT NULL,
-  `unbanTime` datetime DEFAULT NULL,
-  `banType` enum('perm','temp') DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -121,7 +105,7 @@ INSERT INTO `countries` (`id`, `phone_code`, `country_code`, `country_name`) VAL
 (52, 242, 'CD', 'Congo, Democratic Republic of the Congo'),
 (53, 682, 'CK', 'Cook Islands'),
 (54, 506, 'CR', 'Costa Rica'),
-(55, 225, 'CI', 'Cote D\'Ivoire'),
+(55, 225, 'CI', 'Cote D''Ivoire'),
 (56, 385, 'HR', 'Croatia'),
 (57, 53, 'CU', 'Cuba'),
 (58, 599, 'CW', 'Curacao'),
@@ -184,12 +168,12 @@ INSERT INTO `countries` (`id`, `phone_code`, `country_code`, `country_name`) VAL
 (115, 7, 'KZ', 'Kazakhstan'),
 (116, 254, 'KE', 'Kenya'),
 (117, 686, 'KI', 'Kiribati'),
-(118, 850, 'KP', 'Korea, Democratic People\'s Republic of'),
+(118, 850, 'KP', 'Korea, Democratic People''s Republic of'),
 (119, 82, 'KR', 'Korea, Republic of'),
 (120, 381, 'XK', 'Kosovo'),
 (121, 965, 'KW', 'Kuwait'),
 (122, 996, 'KG', 'Kyrgyzstan'),
-(123, 856, 'LA', 'Lao People\'s Democratic Republic'),
+(123, 856, 'LA', 'Lao People''s Democratic Republic'),
 (124, 371, 'LV', 'Latvia'),
 (125, 961, 'LB', 'Lebanon'),
 (126, 266, 'LS', 'Lesotho'),
@@ -332,7 +316,7 @@ CREATE TABLE `posts` (
   `author` varchar(16) DEFAULT NULL,
   `subject` varchar(50) NOT NULL,
   `content` varchar(250) NOT NULL,
-  `publicationDate` datetime NOT NULL DEFAULT current_timestamp()
+  `publicationDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -366,43 +350,41 @@ CREATE TABLE `sections` (
 
 CREATE TABLE `users` (
   `login` varchar(16) NOT NULL,
-  `password` varchar(40) NOT NULL,
+  `password` varchar(200) NOT NULL,
   `mail` varchar(50) DEFAULT NULL,
   `accType` enum('user','admin') DEFAULT NULL,
   `description` varchar(300) DEFAULT NULL,
   `photoPath` varchar(40) DEFAULT NULL,
   `country` int(11) DEFAULT NULL,
-  `phone` char(9) DEFAULT NULL,
-  `isActive` enum('yes','no') DEFAULT NULL
+  `phone` char(9) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `users`
+--
+
+INSERT INTO `users` (`login`, `password`, `mail`, `accType`, `description`, `photoPath`, `country`, `phone`) VALUES
+('admin', '1c33ca287c1600ac67ba84611f69b3a34f7c138c', 'siema@wp.pl', 'user', 'Witam mam 17 lat', 'profilePictures/img.admin.jpg', 1, NULL);
 
 --
 -- Indeksy dla zrzutów tabel
 --
 
 --
--- Indeksy dla tabeli `bans`
---
-ALTER TABLE `bans`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `givenBy` (`givenBy`),
-  ADD KEY `bannedUser` (`bannedUser`);
-
---
--- Indeksy dla tabeli `comments`
+-- Indexes for table `comments`
 --
 ALTER TABLE `comments`
   ADD KEY `login` (`login`),
   ADD KEY `postId` (`postId`);
 
 --
--- Indeksy dla tabeli `countries`
+-- Indexes for table `countries`
 --
 ALTER TABLE `countries`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `posts`
+-- Indexes for table `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
@@ -410,20 +392,20 @@ ALTER TABLE `posts`
   ADD KEY `sectionId` (`sectionId`);
 
 --
--- Indeksy dla tabeli `ratings`
+-- Indexes for table `ratings`
 --
 ALTER TABLE `ratings`
   ADD KEY `login` (`login`),
   ADD KEY `postId` (`postId`);
 
 --
--- Indeksy dla tabeli `sections`
+-- Indexes for table `sections`
 --
 ALTER TABLE `sections`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`login`),
@@ -431,37 +413,22 @@ ALTER TABLE `users`
   ADD KEY `country` (`country`);
 
 --
--- AUTO_INCREMENT dla zrzuconych tabel
+-- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT dla tabeli `bans`
---
-ALTER TABLE `bans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `countries`
 --
 ALTER TABLE `countries`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=253;
-
 --
 -- AUTO_INCREMENT dla tabeli `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- Ograniczenia dla zrzutów tabel
 --
-
---
--- Ograniczenia dla tabeli `bans`
---
-ALTER TABLE `bans`
-  ADD CONSTRAINT `bans_ibfk_1` FOREIGN KEY (`givenBy`) REFERENCES `users` (`login`),
-  ADD CONSTRAINT `bans_ibfk_2` FOREIGN KEY (`bannedUser`) REFERENCES `users` (`login`);
 
 --
 -- Ograniczenia dla tabeli `comments`
@@ -489,7 +456,6 @@ ALTER TABLE `ratings`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`country`) REFERENCES `countries` (`id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

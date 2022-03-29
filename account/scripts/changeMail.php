@@ -13,8 +13,14 @@
   if($userInformation['password']!=sha1($_POST['password'])){
       header("location: ../editProfile.php?error=1");
   }
-  if(strpos($_POST['email'],'@')===false){
+  else if(strpos($_POST['email'],'@')==false){
       header("location: ../editProfile.php?error=2");
+  }
+  else{
+  $sql = "update users set `mail` = '$_POST[email]' where `login` like '$_SESSION[login]'";
+  $connect->query($sql);
+  echo $sql;
+  header("location: ../editProfile.php?changeMail=1");
   }
   
 ?>

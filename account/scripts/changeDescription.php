@@ -9,7 +9,7 @@
     }else{
         $sql="update `users` set `description`='$description' where `login` like '$_SESSION[login]'";
         $connect->query($sql);
-        header("location: ../editProfile.php?success=3");
+        header("location: ../editProfile.php?changeDescription=1");
     }
 
     

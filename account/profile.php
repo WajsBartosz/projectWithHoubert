@@ -25,7 +25,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="../index.php">Strona główna</a>
@@ -84,7 +84,7 @@ logout;
             <h1><p id="info">Informacje o twoim koncie</p></h1>
             <hr>
             <?php if($accountInformation['photoPath']!=NULL){
-                echo "<img src=./avatars/$accountInformation[photoPath]";
+                echo "<img src=../$accountInformation[photoPath] class=profilePicture>";
             }?>
             <p class="topParagraphs">Login: <?php echo "$accountInformation[login]";?></p>
             <p class="topParagraphs">E-Mail: <?php echo "$accountInformation[mail]";?></p>
@@ -98,8 +98,8 @@ logout;
             <p class="bottomParagraphs">Kraj: <?php if($accountInformation['country']!=NULL) echo "$accountInformation[country]";?></p>
             <p class="bottomParagraphs">Numer telefonu: <?php if($accountInformation['country']!=NULL) echo "$accountInformation[phone]";?></p>
             <p class="bottomParagraphs">Do teraz opublikowałeś <?php echo "$numberOfPosts[number] $postVariety"; ?></p>
-            <p id="editInfo"><a id="info" href="./editProfile.php">Edytuj profil</a></p>
         </div>
+        <p id="editInfo"><a id="info" href="./editProfile.php">Edytuj profil</a></p>
 </div>
 
     <footer>

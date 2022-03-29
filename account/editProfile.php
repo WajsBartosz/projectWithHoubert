@@ -25,7 +25,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="../index.php">Strona główna</a>
@@ -58,7 +58,7 @@ logout;
   </div>
 </nav>
 
-<div id='main'>
+  <div id='main'>
     <?php 
 
     ?>
@@ -104,9 +104,41 @@ logout;
                 <textarea id='description' name='description'></textarea><br>
                 <input type='submit' value='zmień opis' class='button'>
               </form>
+          </div>
+          <div class='changeLabel'>Zmień zdjęcie</div>
+            <div class='changeDiv'>
+              <form action='./scripts/changePhoto.php' method='POST' enctype="multipart/form-data">
+                <label>Zmień zdjęcie:</label><br>
+                <input type='file' name='userImage'><br>
+                <input type='submit' value='zmień zdjęcie' class='button'>
+              </form>
             </div>
-    </div>
-</div>
+            <div class='changeLabel'>Zmień kraj</div>
+            <div class='changeDiv'>
+              <form action='./scripts/changeCountry.php' method='POST'>
+                <?php 
+                    $sql="select * from `countries`";
+                    $result=$connect->query($sql);
+                    echo "<select name=country>";
+                    foreach($result as $country){
+                        echo "<option value=$country[id]>$country[country_name]</option>";
+                    }
+                    echo "</select><br>";
+                ?>
+                <input type='submit' value='zmień kraj' class='button'>
+              </form>
+            </div>
+            <div class='changeLabel'>Zmień numer telefonu</div>
+            <div class='changeDiv'>
+              <form action='./scripts/changePhone.php' method='POST'>
+                    <input type='tel' name='phone' pattern="[0-9]{9}" required><br>
+                    Format: 123456789<br>
+                <input type='submit' value='zmień numer' class='button'>
+              </form>
+            </div>
+      </div>
+      <a href='profile.php'>Powrót na profil</a>
+  </div>
 
     <footer>
     Wszelkie prawa zastrzeżone <b>Wajs Bartosz Przybyła Hubert</b> &copy

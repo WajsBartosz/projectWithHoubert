@@ -1,91 +1,99 @@
-#top{
-    position:relative;
-    margin:auto;
-    margin-top:50px;
-    margin-bottom:50px;
-    width:85%;
-    opacity:0.925;
-    color:White;
-    overflow:auto;
-    min-height: 25vh; 
-    font-size: 30px;
+#top {
+  position: relative;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 85%;
+  opacity: 0.925;
+  color: White;
+  overflow: auto;
+  min-height: 25vh;
+  font-size: 30px;
 }
 
-.changeDiv{
-    clear:both;
-    width:100%;
-    background-color: rgb(23,27,31);
-    font-size: 80%;
-    transition: 500ms;
-    border-radius:20px;
-    max-height: 0;
-    overflow: hidden;
-    position: relative;
+.changeDiv {
+  clear: both;
+  width: 100%;
+  background-color: rgb(23, 27, 31);
+  font-size: 80%;
+  transition: 500ms;
+  border-radius: 20px;
+  max-height: 0;
+  overflow: hidden;
+  position: relative;
 }
 
-.changeDiv label, .changeDiv input{
-    margin:5px;
+.changeDiv label,
+.changeDiv input,
+.changeDiv textarea,
+.changeDiv select {
+  margin: 15px 0;
 }
 
-.visible{
-    padding-left:20px;
-    max-height:500px;
+.visible {
+  padding-left: 20px;
+  max-height: 500px;
 }
 
-.button{
-    background-color:rgb(23,27,31);
-    color:orange;
-    border:none;
-    padding:5px;
-    border-radius:5px;
-    font-size:90%;
-    font-family:Arial, Helvetica, sans-serif;
-    transition: 0.35s;
+.button {
+  background-color: rgb(23, 27, 31);
+  color: orange;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 90%;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: 0.35s;
 }
 
-.button:hover{
-    background-color:rgb(13,17,21);
-    
+.button:hover {
+  background-color: rgb(13, 17, 21);
 }
 
-#bottom{
-    margin:auto;
-    margin-top:50px;
-    margin-bottom:50px;
-    width:85%;
-    opacity:0.925;
-    color:White;
-    overflow:auto;
-    min-height: 50vh;
-    font-size: 30px;
-    padding-top: 50px;
+#bottom {
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 85%;
+  opacity: 0.925;
+  color: White;
+  overflow: none;
+  min-height: 50vh;
+  font-size: 30px;
 }
 
-.topParagraphs{
-    padding-left: 40%;
+.topParagraphs {
+  padding-left: 40%;
 }
 
-#info{
-    text-align: center;
-    font-size: 20em;
-    padding-bottom: 30px;
+#info {
+  text-align: center;
+  font-size: 20em;
+  padding-bottom: 30px;
 }
 
-#info{
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
+#info {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
 }
 
-#info:hover{
-    color: orange;
+#info:hover {
+  color: orange;
 }
 
-#editInfo{
-    padding-top: 70px;
+#editInfo {
+  text-align: center;
 }
 
-.changeLabel{
-    clear:both;
-    
+.changeLabel {
+  clear: both;
+  cursor: pointer;
+}
+
+.profilePicture {
+  width: 400px;
+  height: 300px;
+  float: left;
+  margin: 0;
 }
