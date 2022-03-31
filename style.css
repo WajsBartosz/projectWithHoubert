@@ -48,16 +48,89 @@ footer {
   display:flex;
   margin: 10px 0;
   font-size:27px;
+  background-color:rgb(28, 32, 36)
 }
 
 .leftSide{
   width:40%;
-  background-color: blue;
+  
   padding:10px;
+}
+
+.leftSide a{
+  color:orange;
+  text-decoration: none;
 }
 
 .rightSide{
   width:60%;
-  background-color: red;
-  padding:10px;
+  padding:4px 4px 4px 10px;
+  margin:10px;
+  border-left-style:solid;
+}
+
+.add-post-section{
+  width:80%;
+  margin: 20px auto;
+  text-align:center;
+}
+
+.btn-submit-form{
+  background-color: rgb(33, 37, 41);
+  color:orange; 
+  border:none; 
+  font-size:25px; 
+  margin:15px 0 0 0;
+  padding: 5px 30px;
+}
+
+.btn-submit-form:hover{
+  color:orange;
+  background-color: rgb(47, 52, 56); 
+}
+
+.input-span-width{
+  width:75px;
+}
+
+.display-posts-section{
+  width:90%;
+  margin:auto;
+  display:flex;
+  flex-direction: column;
+}
+
+.display-post{
+  font-size:15px;
+  display:flex;
+  background-color:rgb(28, 32, 36);
+  margin: 10px 0;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.display-post a{
+  text-decoration: none;
+  color:rgb(210,210,210);
+}
+
+.display-post a:hover{
+  color:white;
+}
+
+.display-post h2{
+  font-size:250%;
+}
+
+.author-info{
+  color:orange;
+  display:flex;
+  flex-direction: column;
+  padding: 0 0 0 10px;
+  border-left:solid;
+}
+
+.author-info p{
+  padding: 0; 
+  margin: 0; 
 }

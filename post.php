@@ -23,10 +23,10 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" href="index.php">Strona główna</a>
+          <a class="nav-link" href="index.php">Strona główna</a>
         </li>
         <?php if(isset($_SESSION['login'])){
           echo "<li class=nav-item>
@@ -57,8 +57,32 @@ logout;
 </nav>
 
     <div id='main'>
-
-</div>
+        <div class='add-post-section'>
+        <?php 
+            if(!isset($_SESSION['login'])) 
+                echo "Zaloguj się aby dodać komentarz.";
+            else{?>
+                <form action='./php/scripts/addComment.php' method='post'>
+                    <input type='numer' name='postID' value=<?php echo "$_GET[post]"; ?> hidden>
+                    <div class="input-group">
+                      <span class="input-group-text input-span-width">Treść</span>
+                      <textarea class="form-control" aria-label="With textarea" required name='commentContent'></textarea>
+                    </div>             
+                    <center><button type="submit" class="btn btn-primary btn-submit-form" name='sendbutton' value='1'>Dodaj komentarz</button></center>
+                  </form>
+        <?php } ?>
+        </div>
+        <hr>
+        <div class='display-posts-section'>
+          <?php
+            $sql = "select * from `posts` where `id` like '$_GET[post]'";
+            $result = $connect->query($sql);
+            $postData = $result->fetch_assoc();
+            echo "<h1>$postData[subject]</h1>$postData[content]<hr>";
+            require_once("./php/scripts/displayComments.php"); 
+          ?>
+        </div>
+    </div>
 
     <footer>
     Wszelkie prawa zastrzeżone <b>Wajs Bartosz Przybyła Hubert</b> &copy

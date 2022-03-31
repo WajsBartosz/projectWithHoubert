@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 29 Mar 2022, 11:38
--- Wersja serwera: 10.1.8-MariaDB
--- Wersja PHP: 5.6.14
+-- Czas generowania: 31 Mar 2022, 20:22
+-- Wersja serwera: 10.4.17-MariaDB
+-- Wersja PHP: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -30,8 +31,21 @@ CREATE TABLE `comments` (
   `postId` int(11) DEFAULT NULL,
   `login` varchar(16) DEFAULT NULL,
   `content` varchar(255) NOT NULL,
-  `pubDate` datetime NOT NULL
+  `pubDate` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `comments`
+--
+
+INSERT INTO `comments` (`postId`, `login`, `content`, `pubDate`) VALUES
+(5, 'hprzybyla', 'siema dodaje koment', '2022-03-31 19:56:01'),
+(5, 'hprzybyla', 'Lorem ipsum dolor sit amet orci aliquam.', '2022-03-31 19:59:19'),
+(10, 'hprzybyla', 'dodaje koment elo', '2022-03-31 20:06:31'),
+(10, 'hprzybyla', 'gfdsgfds', '2022-03-31 20:06:34'),
+(11, 'hprzybyla', ':DDDD', '2022-03-31 20:06:52'),
+(12, 'hprzybyla', 'epicki poradnik.', '2022-03-31 20:07:35'),
+(13, 'hprzybyla', 'Tak.', '2022-03-31 20:22:02');
 
 -- --------------------------------------------------------
 
@@ -105,7 +119,7 @@ INSERT INTO `countries` (`id`, `phone_code`, `country_code`, `country_name`) VAL
 (52, 242, 'CD', 'Congo, Democratic Republic of the Congo'),
 (53, 682, 'CK', 'Cook Islands'),
 (54, 506, 'CR', 'Costa Rica'),
-(55, 225, 'CI', 'Cote D''Ivoire'),
+(55, 225, 'CI', 'Cote D\'Ivoire'),
 (56, 385, 'HR', 'Croatia'),
 (57, 53, 'CU', 'Cuba'),
 (58, 599, 'CW', 'Curacao'),
@@ -168,12 +182,12 @@ INSERT INTO `countries` (`id`, `phone_code`, `country_code`, `country_name`) VAL
 (115, 7, 'KZ', 'Kazakhstan'),
 (116, 254, 'KE', 'Kenya'),
 (117, 686, 'KI', 'Kiribati'),
-(118, 850, 'KP', 'Korea, Democratic People''s Republic of'),
+(118, 850, 'KP', 'Korea, Democratic People\'s Republic of'),
 (119, 82, 'KR', 'Korea, Republic of'),
 (120, 381, 'XK', 'Kosovo'),
 (121, 965, 'KW', 'Kuwait'),
 (122, 996, 'KG', 'Kyrgyzstan'),
-(123, 856, 'LA', 'Lao People''s Democratic Republic'),
+(123, 856, 'LA', 'Lao People\'s Democratic Republic'),
 (124, 371, 'LV', 'Latvia'),
 (125, 961, 'LB', 'Lebanon'),
 (126, 266, 'LS', 'Lesotho'),
@@ -315,21 +329,24 @@ CREATE TABLE `posts` (
   `sectionId` int(11) UNSIGNED DEFAULT NULL,
   `author` varchar(16) DEFAULT NULL,
   `subject` varchar(50) NOT NULL,
-  `content` varchar(250) NOT NULL,
-  `publicationDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `content` varchar(400) NOT NULL,
+  `publicationDate` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Struktura tabeli dla tabeli `ratings`
+-- Zrzut danych tabeli `posts`
 --
 
-CREATE TABLE `ratings` (
-  `postId` int(11) DEFAULT NULL,
-  `login` varchar(16) DEFAULT NULL,
-  `type` enum('+','-') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `posts` (`id`, `sectionId`, `author`, `subject`, `content`, `publicationDate`) VALUES
+(1, 1, 'hprzybyla', 'gfd', 'dfd', '2022-03-31 17:20:23'),
+(2, 1, 'hprzybyla', 'gfd', 'dfd', '2022-03-31 17:20:35'),
+(3, 1, 'hprzybyla', 'gfd', 'dfd', '2022-03-31 17:21:24'),
+(4, 1, 'hprzybyla', 'Jak zabić melanie?', 'Jak zabić te **** melanie i uniknąć jej ataku?', '2022-03-31 17:38:24'),
+(5, 1, 'hprzybyla', 'Lorem ipsum dolor sit amet orci aliquam.', 'Lorem ipsum dolor sit amet orci aliquam.Lorem ipsum dolor sit amet orci aliquam.Lorem ipsum dolor sit amet orci aliquam.Lorem ipsum dolor sit amet orci aliquam.Lorem ipsum dolor sit amet orci aliquam.', '2022-03-31 17:47:19'),
+(10, 1, 'hprzybyla', 'gfdgfd', 'gfdgfdgdf', '2022-03-31 20:06:21'),
+(11, 7, 'hprzybyla', 'czy strona dziala test 123', 'siema', '2022-03-31 20:06:48'),
+(12, 2, 'hprzybyla', 'Poradnik - jak zabić melanie', 'Wzorowałem się popularnym strimerem brartrash veiss', '2022-03-31 20:07:28'),
+(13, 6, 'hprzybyla', 'czy melania jest op?', 'Czy ona jest op?', '2022-03-31 20:21:59');
 
 -- --------------------------------------------------------
 
@@ -341,6 +358,19 @@ CREATE TABLE `sections` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `sections`
+--
+
+INSERT INTO `sections` (`id`, `name`) VALUES
+(1, 'Lokacje'),
+(2, 'Bossowie'),
+(3, 'Przedmioty'),
+(4, 'Pomoc Techniczna'),
+(5, 'PVP'),
+(6, 'Dyskusje'),
+(7, 'Bugi i glicze');
 
 -- --------------------------------------------------------
 
@@ -364,27 +394,28 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`login`, `password`, `mail`, `accType`, `description`, `photoPath`, `country`, `phone`) VALUES
-('admin', '1c33ca287c1600ac67ba84611f69b3a34f7c138c', 'siema@wp.pl', 'user', 'Witam mam 17 lat', 'profilePictures/img.admin.jpg', 1, NULL);
+('admin', '1c33ca287c1600ac67ba84611f69b3a34f7c138c', 'siema@wp.pl', 'user', 'Witam mam 17 lat', 'profilePictures/img.admin.jpg', 1, NULL),
+('hprzybyla', 'c380f833034d60bf035a134094eb538d600dc6f9', 'hubercik022@gmail.com', 'user', NULL, NULL, NULL, NULL);
 
 --
 -- Indeksy dla zrzutów tabel
 --
 
 --
--- Indexes for table `comments`
+-- Indeksy dla tabeli `comments`
 --
 ALTER TABLE `comments`
   ADD KEY `login` (`login`),
   ADD KEY `postId` (`postId`);
 
 --
--- Indexes for table `countries`
+-- Indeksy dla tabeli `countries`
 --
 ALTER TABLE `countries`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `posts`
+-- Indeksy dla tabeli `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
@@ -392,20 +423,13 @@ ALTER TABLE `posts`
   ADD KEY `sectionId` (`sectionId`);
 
 --
--- Indexes for table `ratings`
---
-ALTER TABLE `ratings`
-  ADD KEY `login` (`login`),
-  ADD KEY `postId` (`postId`);
-
---
--- Indexes for table `sections`
+-- Indeksy dla tabeli `sections`
 --
 ALTER TABLE `sections`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeksy dla tabeli `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`login`),
@@ -413,7 +437,7 @@ ALTER TABLE `users`
   ADD KEY `country` (`country`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT dla zrzuconych tabel
 --
 
 --
@@ -421,11 +445,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `countries`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=253;
+
 --
 -- AUTO_INCREMENT dla tabeli `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 --
 -- Ograniczenia dla zrzutów tabel
 --
@@ -445,17 +471,11 @@ ALTER TABLE `posts`
   ADD CONSTRAINT `posts_ibfk_2` FOREIGN KEY (`sectionId`) REFERENCES `sections` (`id`);
 
 --
--- Ograniczenia dla tabeli `ratings`
---
-ALTER TABLE `ratings`
-  ADD CONSTRAINT `ratings_ibfk_2` FOREIGN KEY (`login`) REFERENCES `users` (`login`),
-  ADD CONSTRAINT `ratings_ibfk_3` FOREIGN KEY (`postId`) REFERENCES `posts` (`id`);
-
---
 -- Ograniczenia dla tabeli `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`country`) REFERENCES `countries` (`id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

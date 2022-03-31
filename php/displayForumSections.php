@@ -7,7 +7,8 @@
 <div class='forumSections'>
     <div class='singleSection'>
         <div class='leftSide'>
-            <?php echo $key['name']?>
+            <?php echo "<a href='forum.php?section=$key[id]'>$key[name]</a>"?>
+            
         </div>
         <div class='rightSide'>
             siema
