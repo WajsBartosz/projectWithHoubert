@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 31 Mar 2022, 20:22
+-- Czas generowania: 01 Kwi 2022, 06:49
 -- Wersja serwera: 10.4.17-MariaDB
 -- Wersja PHP: 8.0.1
 
@@ -45,7 +45,9 @@ INSERT INTO `comments` (`postId`, `login`, `content`, `pubDate`) VALUES
 (10, 'hprzybyla', 'gfdsgfds', '2022-03-31 20:06:34'),
 (11, 'hprzybyla', ':DDDD', '2022-03-31 20:06:52'),
 (12, 'hprzybyla', 'epicki poradnik.', '2022-03-31 20:07:35'),
-(13, 'hprzybyla', 'Tak.', '2022-03-31 20:22:02');
+(13, 'hprzybyla', 'Tak.', '2022-03-31 20:22:02'),
+(12, 'admin', 'ty kurwo', '2022-03-31 20:30:19'),
+(15, 'hprzybyla', 'Temat walkowany 1000 razy uzyj lupki ', '2022-03-31 20:37:15');
 
 -- --------------------------------------------------------
 
@@ -346,7 +348,10 @@ INSERT INTO `posts` (`id`, `sectionId`, `author`, `subject`, `content`, `publica
 (10, 1, 'hprzybyla', 'gfdgfd', 'gfdgfdgdf', '2022-03-31 20:06:21'),
 (11, 7, 'hprzybyla', 'czy strona dziala test 123', 'siema', '2022-03-31 20:06:48'),
 (12, 2, 'hprzybyla', 'Poradnik - jak zabić melanie', 'Wzorowałem się popularnym strimerem brartrash veiss', '2022-03-31 20:07:28'),
-(13, 6, 'hprzybyla', 'czy melania jest op?', 'Czy ona jest op?', '2022-03-31 20:21:59');
+(13, 6, 'hprzybyla', 'czy melania jest op?', 'Czy ona jest op?', '2022-03-31 20:21:59'),
+(14, 3, 'admin', 'Nightbringer', 'Mozna mieczyk znalezc w katakumbah', '2022-03-31 20:35:56'),
+(15, 4, 'admin', 'Jak naprawic tracer shogun', 'Witam jak naprawic tracer shogun poniewaz ostatnio jak gralem to i uderzylem nim w biurko to przestal dzialac :D', '2022-03-31 20:36:36'),
+(16, 5, 'admin', 'Jak pokonac kogos w pVP?!?!?', 'elop', '2022-03-31 20:36:51');
 
 -- --------------------------------------------------------
 
@@ -450,7 +455,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT dla tabeli `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Ograniczenia dla zrzutów tabel

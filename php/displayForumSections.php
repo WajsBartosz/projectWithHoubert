@@ -11,7 +11,15 @@
             
         </div>
         <div class='rightSide'>
-            siema
+            <?php 
+                $sql="select * from `posts`
+                where `sectionId`=$key[id]
+                order by `publicationDate` desc
+                limit 1;";
+                $result1=$connect->query($sql);
+                $latestPost=$result1->fetch_assoc();
+                echo "$latestPost[subject]";
+            ?>
         </div>
     </div>
 </div>
